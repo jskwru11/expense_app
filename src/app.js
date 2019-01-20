@@ -10,6 +10,7 @@ import 'normalize.css/normalize.css';
 import './styles/style.scss';
 import AppRouter from './routers/AppRouter';
 import uuid from 'uuid';
+import './firebase/firebase';
 
 
 // create store call
