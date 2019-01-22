@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import getVisibleExpenses from './selectors/selectors';
-import { addExpense,removeExpense,editExpense } from './actions/expensesAction';
+import { startSetExpenses } from './actions/expensesAction';
 import { setTextFilter,sortByDate,sortByAmount,setStartDate,setEndDate } from './actions/filtersActions';
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
@@ -22,6 +22,11 @@ const jsx = (
     </Provider>
 );
 
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
-ReactDOM.render(jsx, document.getElementById('app'));
+store.dispatch(startSetExpenses()).then(() => {
+    ReactDOM.render(jsx, document.getElementById('app'));
+});
+
+
 
